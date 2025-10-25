@@ -1,5 +1,8 @@
 import logging
 from connector.connector import Connector
+from components.stream import Stream
+from components.utilities import Utility
+
 file_path = r'C:\Users\Rustam\Documents\python\hysys_observer\example.hsc'
 
 # Настраиваем логирование
@@ -10,3 +13,8 @@ logging.basicConfig(
 
 
 case = Connector.case(file_path=file_path)
+
+stream = Stream(case=case)
+utility = Utility(case=case)
+
+utility.playground()
