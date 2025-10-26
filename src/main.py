@@ -15,6 +15,8 @@ logging.basicConfig(
 case = Connector.case(file_path=file_path)
 
 stream = Stream(case=case)
-utility = Utility(case=case)
 
-utility.playground()
+# stream.playground()
+comp_molar_frac = stream.get_components_molar_fraction('1', '1')
+
+print(comp_molar_frac)
