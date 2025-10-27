@@ -5,6 +5,7 @@ class Connector:
        """
        Класс для подключения к Aspen HYSYS
        """
+       @staticmethod
        def case(file_path):
               file_name = file_path.split('\\')[-1]
 
