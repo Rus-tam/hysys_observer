@@ -1,10 +1,11 @@
 from typing import Dict, List
+import pandas as pd
 
 class Stream:
     def __init__(self, case):
         self.case = case
     
-    def get_stream_props(self, stream_name: str) -> Dict[str, float]:
+    def get_stream_props(self, stream_name: str):
         """
         Метод для получения физических свойств заданного потока
         """
@@ -30,7 +31,7 @@ class Stream:
                 f'{stream_name}_heavy_liquid_fraction_value': stream.HeavyLiquidFractionValue}
 
 
-    def get_components_molar_fraction(self, stream_name: str, comp_list_number: str) -> Dict[str, float]:
+    def get_components_molar_fraction(self, stream_name: str, comp_list_number: str):
         """
         Метод для получения молярного состава заданного потока.
         Если в модели используется один набор компонентов, то comp_list_number = 1
