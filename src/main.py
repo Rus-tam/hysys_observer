@@ -9,16 +9,18 @@ file_path = r'C:\Users\Rustam\Documents\python\hysys_observer\example.hsc'
 # Настраиваем логирование
 logging.basicConfig(
     level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
+    format="%(asctime)s - %(levelname)s - %(message)s\n"
 )
 
 
-case = Connector.case(file_path=file_path)
+# case = Connector.case(file_path=file_path)
 
-stream = Stream(case=case)
+# stream = Stream(case=case)
 
 
 # stream.playground()
 # comp_molar_frac = stream.get_stream_props('1')
 
 # print(comp_molar_frac)
+
+Writer.write_csv({'1': 1.0, '2': 2.0, '3': 3.0})
