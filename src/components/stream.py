@@ -1,8 +1,10 @@
+from typing import Dict, List
+
 class Stream:
     def __init__(self, case):
         self.case = case
     
-    def get_stream_props(self, stream_name: str):
+    def get_stream_props(self, stream_name: str) -> Dict[str, float]:
         """
         Метод для получения физических свойств заданного потока
         """
@@ -28,7 +30,7 @@ class Stream:
                 f'{stream_name}_heavy_liquid_fraction_value': stream.HeavyLiquidFractionValue}
 
 
-    def get_components_molar_fraction(self, stream_name: str, comp_list_number: str):
+    def get_components_molar_fraction(self, stream_name: str, comp_list_number: str) -> Dict[str, float]:
         """
         Метод для получения молярного состава заданного потока.
         Если в модели используется один набор компонентов, то comp_list_number = 1
@@ -46,13 +48,13 @@ class Stream:
         return comp_frac_dict
 
 
-    def _get_components_list(self, comp_list_number: str):
+    def _get_components_list(self, comp_list_number: str) -> List[str]:
         """
         Приватный метод для получения списка используемых компонентов.
         Если в модели используется один набор компонентов, то comp_list_number = 1
         Если в модели используется больше, чем один набор компонентов, то необходимо указать номер набора компонентов.
         """
-        return self.case.BasisManager.ComponentLists.Item(f'Component List - {comp_list_number}').Components.Names
+        return list(self.case.BasisManager.ComponentLists.Item(f'Component List - {comp_list_number}').Components.Names)
 
 
     def playground(self):
